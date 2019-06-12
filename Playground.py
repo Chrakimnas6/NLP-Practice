@@ -21,4 +21,4 @@ a.ageOneYear()
 
 x = np.array([[6,7],[8,9]])
 
-print (np.sum(x))
+print (np.size(x))
