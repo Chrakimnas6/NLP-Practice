@@ -1,4 +1,5 @@
 from functools import reduce
+import random
 
 ## 00. 文字列の逆順
 target = 'stressed'
@@ -76,6 +77,75 @@ result = n_gram(words_target, 2)
 
 print('05. n-gram')
 print(result)
+
+## 06. 集合
+
+print('06. 集合')
+set_x = set(n_gram('paraparaparadise', 2))
+print('A: ' + str(set_x))
+
+set_y = set(n_gram('paragraph', 2))
+print('B: ' + str(set_y))
+
+set_or = set.union(set_x, set_y)
+print('和集合: ' + str(set_or))
+set_and = set_x & set_y # can also use intersection
+print('積集合: ' + str(set_and))
+set_minus = set_x - set_y # difference
+print('差集合: ' + str(set_minus))
+
+print('se in X? ' + str('se' in set_x))
+print('se in Y? ' + str('se' in set_y))
+
+## 07. テンプレートによる文生成
+# def templete(x, y, z):
+#     return str(x) + '時の' + y + 'は' + str(z)
+
+
+# result = templete(12, '気温', 22.4)
+def templete(x, y ,z):
+    return '{}時の{}は{}'.format(x, y, z)
+
+print('07. テンプレートによる文生成')
+print(templete(12, '気温', 22.4))
+
+## 08. 暗号文
+def cipher(target):
+    result = ''
+    for x in target:
+        if (x.islower()):
+            result += chr(219 - ord(x))
+        else:
+            result += x
+    return result
+
+target = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
+result = cipher(target)
+print('08. 暗号文')
+print(result)
+result2 = cipher(result)
+print(result2)
+
+## 09. Typoglycemia
+def typoglycemia(target):
+    result = []
+    for word in target.split():
+        if len(word) < 4:
+            result.append(word)
+        else:
+            word_ran = list(word[1:-1]) #convert str to list since random.shuffle needs a list
+            random.shuffle(word_ran)
+            result.append(word[0] + ''.join(word_ran) + word[-1]) #append a string, take the first and the last alphabet add the shuffled list
+    return ' '.join(result) # turn the list to a string
+
+print('09. Typoglycemia')
+target = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
+print(typoglycemia(target))
+
+
+
+
+
 
 
 
