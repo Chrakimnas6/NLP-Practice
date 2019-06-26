@@ -89,9 +89,9 @@ print('B: ' + str(set_y))
 
 set_or = set.union(set_x, set_y)
 print('和集合: ' + str(set_or))
-set_and = set_x & set_y # can also use intersection
+set_and = set_x & set_y # can also use set.intersection
 print('積集合: ' + str(set_and))
-set_minus = set_x - set_y # difference
+set_minus = set_x - set_y # set.difference
 print('差集合: ' + str(set_minus))
 
 print('se in X? ' + str('se' in set_x))
