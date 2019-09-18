@@ -24,19 +24,37 @@ import torch
 # print(y.grad_fn)
 # z = y * y * 3
 # out = z.mean()
-#print(z)
-#print(out)
+# print(z)
+# print(out)
 # out.backward() # to have all the gradients computed automatically
-# print(x.grad) # the gradient for this tensor will be accumulated
-# zi = 3(xi+2)^2, differentiate it will get 3/2 (xi+2)
+# print(x.grad) # the gradient for this tensor will be accumulated， d(out)/dx
+# zi = 3(xi+2)^2,  differentiate it will get 3/2 (xi+2)
 
-x = torch.randn(3, requires_grad = True)
-y = x * 2
-while y.data.norm() < 1000:
-    y = y * 2
+# x = torch.randn(3, requires_grad = True)
+# y = x * 2
+# while y.data.norm() < 1000:
+#     y = y * 2
 
 #print(y)
-v = torch.tensor([1.0,1.0,1.0], dtype = torch.float)
-y.backward(v)
+# v = torch.tensor([1.0,1.0,1.0], dtype = torch.float)
+# y.backward(v)
 
-print(x.grad)
+# print(x.grad)
+
+# input = torch.ones([2,2], requires_grad=False)
+# w1 = torch.tensor(2.0, requires_grad=True)
+# w2 = torch.tensor(3.0, requires_grad=True)
+# w3 = torch.tensor(4.0, requires_grad=True)
+
+# l1 = input * w1
+# l2 = l1 + w2
+# l3 = l1 * w3
+# l4 = l2 * l3
+# loss = l4.mean()
+
+# loss.backward()
+# print(w1.grad)
+
+a = torch.tensor([10.,5.,2.,3.], requires_grad=True)
+a.data.fill_(10.) # inplace version of add
+print(a.data)
