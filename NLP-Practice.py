@@ -23,7 +23,8 @@ str2 = 'タクシー'
 #     result += w1 + w2
 
 ## method 2
-result = ''.join(reduce(lambda x, y: x + y, zip(str1, str2)))
+## result = ''.join(reduce(lambda x, y: x + y, zip(str1, str2)))
+result = str1 + str2
 print('02.「パトカー」＋「タクシー」＝「パタトクカシーー」')
 print(result)
 
@@ -141,6 +142,46 @@ def typoglycemia(target):
 print('09. Typoglycemia')
 target = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
 print(typoglycemia(target))
+
+## 10.　行数のカウント
+count = 0
+with open('hightemp.txt') as data_file:
+    for line in data_file:
+        count += 1
+
+print(count)
+
+# Unix command 
+# wc -l 
+# wc -c 総バイト数
+# wc -w 単語数
+
+# 11. タブをスペースに置換
+with open('hightemp.txt') as data_file:
+    for line in data_file:
+        print(line.replace('\t', ' '), end = '')
+
+## Unix command
+# sed ‘s/regexp/replacement/flags’
+
+# tr a b < file
+# For example here will be tr '\t' ' ' < hightemp.txt
+
+# expand t 1 hightemp.ext
+
+# 12. 1列目をcol1.txtに，2列目をcol2.txtに保存
+with open('hightemp.txt') as data_file, open('col1.txt', mode='w') as col1_file, open('col2.txt', mode='w') as col2_file:
+    for line in data_file:
+        cols = line.split('\t')
+        col1_file.write(cols[0] + '\n')
+        col2_file.write(cols[1] + '\n')
+
+# Unix command
+# For compare, cut -f 1 hightemp.txt > col1_test.txt
+# diff --report-identical-files col1.txt col1_test.txt
+
+
+
 
 
 
