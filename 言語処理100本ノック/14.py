@@ -6,3 +6,6 @@ with open('hightemp.txt') as data_file:
         if i >= n:
             break
         print(line.rstrip())
+
+
+# Unix command is in 14_test.sh
