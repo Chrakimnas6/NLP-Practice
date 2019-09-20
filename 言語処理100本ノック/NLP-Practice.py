@@ -190,6 +190,14 @@ with open('col1.txt') as col1_file, open('col2.txt') as col2_file, open('merge.t
 # paste col1.txt col2.txt > merge_test.txt
 # and use diff
 
+## 14.先頭からN行を出力
+n = int(input('N is '))
+
+with open('hightemp.txt') as data_file:
+    for i, line in enumerate(data_file):
+        if i >= n:
+            break
+        print(line.rstrip())
 
 
 
