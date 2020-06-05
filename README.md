@@ -1,7 +1,7 @@
 # NLP-Practice
 
-言語処理100本ノック
+- 言語処理100本ノック
 
-python, numpy practice
+- python, numpy practice
  
-pytorch practice 
+- pytorch practice 
