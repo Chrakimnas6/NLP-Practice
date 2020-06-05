@@ -7,9 +7,9 @@ wiki = pd.read_json('jawiki-country.json', lines = True)
 # DataFrame -> Series -> ndarray
 # Series is the data structure for a single column of a DataFrame
 # uk = wiki[wiki['title'] == 'イギリス'].text.array
-uk = wiki[wiki['title'] == 'イギリス'].text.to_numpy()
-print(uk.shape)
-# lines = uk[0].split('\n')
-# for l in lines:
-#     if re.search(pattern, l):
-#         print(l)
+uk = wiki[wiki['title'] == 'イギリス'].to_numpy()[0]
+# print(uk[0][0])
+lines = uk[0].split('\n')
+for l in lines:
+    if re.search(pattern, l):
+        print(l)
